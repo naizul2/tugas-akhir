@@ -1,0 +1,166 @@
+/* css/style.css - Gaya dengan Dark Mode */
+
+/* --- Variabel Warna (Light Mode Default) --- */
+:root {
+    --font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --background-color: #f5f5f7;
+    --content-background: #ffffff;
+    --text-color-primary: #1d1d1f;
+    --text-color-secondary: #6e6e73;
+    --link-color: #0066cc;
+    --link-color-hover: #00509e;
+    --border-color: #d2d2d7;
+    --header-bg: rgba(255, 255, 255, 0.7);
+    --button-bg: #e9e9eb;
+    --button-text: #1d1d1f;
+}
+
+/* --- Variabel Warna untuk DARK MODE --- */
+body.dark-mode {
+    --background-color: #121212;
+    --content-background: #1e1e1e;
+    --text-color-primary: #f5f5f7;
+    --text-color-secondary: #8d8d93;
+    --link-color: #0a84ff;
+    --link-color-hover: #409cff;
+    --border-color: #3a3a3c;
+    --header-bg: rgba(29, 29, 31, 0.7);
+    --button-bg: #3a3a3c;
+    --button-text: #f5f5f7;
+}
+
+body {
+    font-family: var(--font-family-sans);
+    margin: 0;
+    background-color: var(--background-color);
+    color: var(--text-color-primary);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* --- Elemen umum lainnya --- */
+
+.container { max-width: 980px; margin: 40px auto; padding: 0 20px; }
+.page-title { text-align: center; font-size: 3em; font-weight: 700; margin-bottom: 10px; color: var(--text-color-primary); }
+.search-results-info { text-align: center; font-size: 1.1em; margin-top: -20px; margin-bottom: 30px; color: var(--text-color-secondary); }
+
+/* --- Header dengan Search & Dark Mode Toggle --- */
+header {
+    header {
+    background: var(--header-bg);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 10px 0;
+    position: fixed; /* <-- DIUBAH */
+    top: 0;
+    left: 0; /* <-- TAMBAHAN */
+    width: 100%; /* <-- TAMBAHAN */
+    z-index: 100;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+}
+.header-content { display: flex; justify-content: space-between; align-items: center; margin: 0 auto !important; }
+header h1 { margin: 0; font-size: 1.5em; font-weight: 600; }
+header h1 a { color: var(--text-color-primary); text-decoration: none; }
+.header-right { display: flex; align-items: center; gap: 15px; }
+
+/* -- Search Form -- */
+.search-form { display: flex; }
+.search-form input[type="search"] {
+    border: 1px solid var(--border-color);
+    background-color: var(--background-color);
+    color: var(--text-color-primary);
+    padding: 8px 12px;
+    border-radius: 8px 0 0 8px;
+    min-width: 200px;
+    transition: all 0.3s;
+}
+.search-form input[type="search"]:focus {
+    outline: none;
+    border-color: var(--link-color);
+    background-color: var(--content-background);
+}
+.search-form button {
+    border: 1px solid var(--link-color);
+    background-color: var(--link-color);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.search-form button:hover { background-color: var(--link-color-hover); }
+
+/* -- Dark Mode Button -- */
+.dark-mode-button {
+    background: none; border: none; cursor: pointer; color: var(--text-color-secondary);
+    padding: 5px; display: flex; align-items: center; justify-content: center;
+}
+.dark-mode-button:hover { color: var(--text-color-primary); }
+.dark-mode-button .moon { display: none; }
+.dark-mode-button .sun { display: block; }
+body.dark-mode .dark-mode-button .moon { display: block; }
+body.dark-mode .dark-mode-button .sun { display: none; }
+
+/* --- Filter Kategori & Daftar Berita --- */
+.category-filters { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px 25px; margin: 30px 0 50px 0; padding-bottom: 15px; border-bottom: 1px solid var(--border-color); transition: border-color 0.3s; }
+.category-filters a { text-decoration: none; color: var(--link-color); font-size: 1.1em; padding: 5px 0; border-bottom: 2px solid transparent; transition: color 0.3s ease, border-color 0.3s ease; }
+.category-filters a:hover { color: var(--text-color-primary); }
+.category-filters a.active { color: var(--text-color-primary); font-weight: 600; border-bottom-color: var(--text-color-primary); }
+
+.news-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; justify-content: center; /* <-- TAMBAHKAN BARIS INI */}
+.news-item { background-color: var(--content-background); border: 1px solid var(--border-color); border-radius: 18px; overflow: hidden; text-decoration: none; display: flex; flex-direction: column; transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s, border-color 0.3s; }
+.news-item:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); }
+.news-thumbnail { width: 100%; height: 200px; object-fit: cover; border-bottom: 1px solid var(--border-color); }
+.news-content { padding: 20px 25px; display: flex; flex-direction: column; flex-grow: 1; }
+.news-content h2 { margin: 0 0 8px 0; font-size: 1.3em; font-weight: 600; line-height: 1.3; color: var(--text-color-primary); }
+.news-item:hover h2 { color: var(--link-color); }
+.news-meta { font-size: 0.9em; color: var(--text-color-secondary); margin-bottom: 15px; }
+.news-meta .category { font-weight: 600; color: var(--text-color-primary); }
+.news-content p { color: var(--text-color-secondary); margin: 0; font-size: 0.95em; line-height: 1.6; }
+
+/* --- Halaman Artikel & Footer (sama seperti sebelumnya) --- */
+.article-container { max-width: 720px; margin: 40px auto; padding: 0 20px; }
+.article-header { text-align: center; margin-bottom: 40px; }
+.article-header .category { font-size: 1em; font-weight: 600; color: var(--link-color); margin-bottom: 10px; }
+.article-header h1 { font-size: 2.8em; font-weight: 700; margin: 0 0 15px 0; line-height: 1.15; }
+.article-header .news-meta { color: var(--text-color-secondary); font-size: 1em; }
+.article-image { width: 100%; border-radius: 18px; margin-bottom: 40px; }
+.article-content p { font-size: 1.1em; line-height: 1.7; margin: 0 0 1.5em 0; color: var(--text-color-primary); }
+
+.pagination { display: flex; justify-content: center; align-items: center; margin-top: 60px; gap: 15px; }
+.page-link { color: var(--link-color); text-decoration: none; font-size: 1em; font-weight: 500; padding: 8px 16px; border-radius: 20px; transition: background-color 0.3s ease, color 0.3s ease; }
+.page-link:hover { background-color: var(--button-bg); }
+.page-link.active { background-color: var(--text-color-primary); color: var(--content-background); font-weight: 600; }
+
+footer { background-color: var(--content-background); color: var(--text-color-secondary); text-align: center; padding: 30px 0; margin-top: 60px; border-top: 1px solid var(--border-color); transition: background-color 0.3s, border-color 0.3s, color 0.3s;}
+.footer-content { max-width: 980px; margin: 0 auto; padding: 0 20px; font-size: 0.85em; }
+
+/* --- Responsif --- */
+@media (max-width: 768px) {
+    .header-content { flex-direction: column; gap: 15px; }
+    .news-list { grid-template-columns: 1fr; gap: 20px; }
+    .page-title { font-size: 2.5em; }
+    .article-header h1 { font-size: 2.2em; }
+}
+
+/* Tambahan untuk Footer Info */
+.footer-info {
+    margin-bottom: 20px;
+}
+.footer-info h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: var(--text-color-primary);
+}
+.footer-info p {
+    margin: 5px 0 0 0;
+    font-size: 0.9em;
+}
+.copyright {
+    font-size: 0.8em;
+    opacity: 0.8;
+}
