@@ -1,6 +1,6 @@
 <header>
     <div class="container header-content">
-        <h1><a href="index.php">Berita.Net</a></h1>
+        <h1><a href="index.php">News</a></h1>
         <div class="header-right">
             <form action="search.php" method="get" class="search-form">
                 <input type="search" name="q" placeholder="Cari berita..." required>

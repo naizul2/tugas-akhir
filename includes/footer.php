@@ -1,11 +1,11 @@
 <footer>
     <div class="footer-content">
         <div class="footer-info">
-            <h3>Situs Berita Anda</h3>
-            <p>Jl. Berdikari Ujung No.136, Padang Bulan Selayang I, Kec. Medan Selayang, Kota Medan, Sumatera Utara 20155</p>
-            <p>Email: naizulfahmi1@gmail.com | Telepon: 0812-6578-4621</p>
+            <h3>Situs Berita</h3>
+            <p>Medan, Sumatera Utara, Indonesia</p>
+            <p>Email: fatwarangkuti8@gmail.com | Telepon: 0812-9385-0631</p>
         </div>
-        <p class="copyright">&copy; <?php echo date('Y'); ?> .</p>
+        <p class="Fatwa">&copy; <?php echo date('2025'); ?> .</p>
     </div>
 </footer>
 

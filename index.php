@@ -50,7 +50,7 @@ $conn->close();
     <?php include 'includes/header.php'; ?>
 
     <main class="container">
-        <h1 class="page-title">Berita Terbaru</h1>
+        <h1 class="page-title">Berita Terlengkap</h1>
 
         <?php if (!empty($categories)): ?>
         <nav class="category-filters">
